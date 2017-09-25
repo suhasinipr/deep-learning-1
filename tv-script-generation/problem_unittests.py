@@ -182,7 +182,7 @@ def test_get_inputs(get_inputs):
 
 def test_get_init_cell(get_init_cell):
     with tf.Graph().as_default():
-        test_batch_size_ph = tf.placeholder(tf.int32, [])
+        test_batch_size_ph = tf.placeholder(tf.int32)
         test_rnn_size = 256
 
         cell, init_state = get_init_cell(test_batch_size_ph, test_rnn_size)
@@ -281,7 +281,7 @@ def test_get_tensors(get_tensors):
 
     # Check correct tensor
     assert input_text == test_input,\
-        'Test input is wrong tensor'
+        'Test input is wrong tensor '
     assert initial_state == test_initial_state, \
         'Initial state is wrong tensor'
     assert final_state == test_final_state, \
@@ -309,4 +309,3 @@ def test_pick_word(pick_word):
 
 
     _print_success_message()
-
